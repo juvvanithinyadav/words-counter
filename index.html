@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+        
+</head>
+<body>
+    <div class="header">
+        Word & Charater Counter
+    </div>
+
+    <div class="Wrapper">
+        <div class="continer">
+            <textarea rows="20" id="text-content"></textarea>
+        </div>
+    
+    <div>
+        <div class="count">
+            <div>
+            <h4 id="word-count">0</h4>
+            <p>Words</p>
+            </div>
+     <div>
+    <h4 id="char-count">0</h4>
+    <p>Charaters</p>
+
+       </div>
+    </div> 
+</div>
+    
+<script>
+let textAreaEle = document.getElementById('text-content');
+let wordCountEle = document.getElementById('word-count');
+let charCountEle = document.getElementById('char-count');
+
+textAreaEle.addEventListener('input', () => {
+    let content = textAreaEle.value;
+    charCountEle.innerHTML = content.length;
+
+    let text = content.trim();
+    // Handle cases where the text is empty after trimming
+    let words = text === "" ? 0 : text.split(/\s/).length; // Use \s+ to handle multiple spaces
+    wordCountEle.innerHTML = words;
+});
+</script> 
+    
+</body>
+</html>
